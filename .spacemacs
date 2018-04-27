@@ -452,6 +452,7 @@ before packages are loaded."
   (setq org-plantuml-jar-path
         (expand-file-name "~/Nextcloud/notebook/plantuml.jar"))
   (setq create-lockfiles nil)
+  (blink-cursor-mode 1)
 
   (with-eval-after-load 'ruby-mode
     (spacemacs/set-leader-keys-for-major-mode 'ruby-mode
@@ -469,8 +470,13 @@ before packages are loaded."
   (global-set-key [(hyper w)]
                   (lambda () (interactive) (delete-window)))
   (global-set-key [(hyper z)] 'undo)
+
+  (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
+
 	(setq mac-option-modifier 'meta)
 	(setq mac-command-modifier 'hyper)
+  (mac-auto-operator-composition-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
