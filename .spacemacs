@@ -148,7 +148,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -190,7 +190,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Inconsolata"
+   dotspacemacs-default-font '("Fira Code"
                                :size 13
                                :weight normal
                                :width normal)
@@ -460,6 +460,17 @@ before packages are loaded."
       "tf" 'rspec-verify
       )
     )
+  ;; Keybonds
+  (global-set-key [(hyper a)] 'mark-whole-buffer)
+  (global-set-key [(hyper v)] 'yank)
+  (global-set-key [(hyper c)] 'kill-ring-save)
+  (global-set-key [(hyper s)] 'save-buffer)
+  (global-set-key [(hyper l)] 'goto-line)
+  (global-set-key [(hyper w)]
+                  (lambda () (interactive) (delete-window)))
+  (global-set-key [(hyper z)] 'undo)
+	(setq mac-option-modifier 'meta)
+	(setq mac-command-modifier 'hyper)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
